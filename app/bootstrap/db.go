@@ -22,13 +22,6 @@ type DBConfig struct {
 func InitializeDB() {
 
 	// 暂时写死，稍后改为配置文件读取
-	dbHostWrite := "47.96.225.173"
-	dbHostRead := "47.96.225.173,47.96.225.173"
-	dbPortWrite := "3306"
-	dbPortRead := "3306"
-	dbUser := "root"
-	dbPassword := "M_db@server001"
-	queryParams := "charset=utf8mb4&parseTime=True&loc=Local"
 
 	// 配置需要连接的数据库,暂时写死，跑通后改为配置文件读取
 	dbNameList := []string{"ppc_library", "growth"}
