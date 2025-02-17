@@ -2,16 +2,21 @@ package config
 
 // 配置文件映射结构体，对应config.yaml下的db节点，命名请与配置文件中保持一致，方便理解
 type Db struct {
-    Driver string `mapstructure:"driver" json:"driver" yaml:"driver"`
-    Host string `mapstructure:"host" json:"host" yaml:"host"`
-    Port int `mapstructure:"port" json:"port" yaml:"port"`
-    Database string `mapstructure:"database" json:"database" yaml:"database"`
-    UserName string `mapstructure:"username" json:"username" yaml:"username"`
-    Password string `mapstructure:"password" json:"password" yaml:"password"`
-    Charset string `mapstructure:"charset" json:"charset" yaml:"charset"`
-    MaxIdleConns int `mapstructure:"max_idle_conns" json:"max_idle_conns" yaml:"max_idle_conns"`
-    MaxOpenConns int `mapstructure:"max_open_conns" json:"max_open_conns" yaml:"max_open_conns"`
-    LogMode string `mapstructure:"log_mode" json:"log_mode" yaml:"log_mode"`
-    EnableFileLogWriter bool `mapstructure:"enable_file_log_writer" json:"enable_file_log_writer" yaml:"enable_file_log_writer"`
-    LogFilename string `mapstructure:"log_filename" json:"log_filename" yaml:"log_filename"`
+	Driver              string `mapstructure:"driver" json:"driver" yaml:"driver"`
+	Host                string `mapstructure:"host" json:"host" yaml:"host"`
+	Port                int    `mapstructure:"port" json:"port" yaml:"port"`
+	Database            string `mapstructure:"database" json:"database" yaml:"database"`
+	UserName            string `mapstructure:"username" json:"username" yaml:"username"`
+	Password            string `mapstructure:"password" json:"password" yaml:"password"`
+	Charset             string `mapstructure:"charset" json:"charset" yaml:"charset"`
+	MaxIdleConns        int    `mapstructure:"max_idle_conns" json:"max_idle_conns" yaml:"max_idle_conns"`
+	MaxOpenConns        int    `mapstructure:"max_open_conns" json:"max_open_conns" yaml:"max_open_conns"`
+	LogMode             string `mapstructure:"log_mode" json:"log_mode" yaml:"log_mode"`
+	EnableFileLogWriter bool   `mapstructure:"enable_file_log_writer" json:"enable_file_log_writer" yaml:"enable_file_log_writer"`
+	LogFilename         string `mapstructure:"log_filename" json:"log_filename" yaml:"log_filename"`
+	DbNameList          string `mapstructure:"db_name_list" json:"db_name_list" yaml:"db_name_list"`
+	DbHostWrite         string `mapstructure:"db_host_write" json:"db_host_write" yaml:"db_host_write"`
+	DbHostRead          string `mapstructure:"db_host_read" json:"db_host_read" yaml:"db_host_read"`
+	DbPortWrite         int    `mapstructure:"db_port_write" json:"db_port_write" yaml:"db_port_write"`
+	DbPortRead          int    `mapstructure:"db_port_read" json:"db_port_read" yaml:"db_port_read"`
 }

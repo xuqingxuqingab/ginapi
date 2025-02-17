@@ -3,6 +3,7 @@ package bootstrap
 import (
 	"encoding/json"
 	"fmt"
+	"ginapi/app/global"
 	"log"
 	"strings"
 
@@ -20,11 +21,36 @@ type DBConfig struct {
 }
 
 func InitializeDB() {
-
+	fmt.Println(111111)
+	fmt.Println(global.App.Config.Db)
 	// 暂时写死，稍后改为配置文件读取
+	// dbHostWrite := "127.0.0.1"
+	dbHostWrite := global.App.Config.Db.DbHostWrite
+	fmt.Println(dbHostWrite)
+	// dbHostRead := "127.0.0.1,127.0.0.1"
+	dbHostRead := global.App.Config.Db.DbHostRead
+
+	// dbPortWrite := "3306"
+	dbPortWriteInt := global.App.Config.Db.DbPortWrite
+	dbPortWrite := fmt.Sprintf("%d", dbPortWriteInt)
+	fmt.Println("dbPortWrite:", dbPortWrite)
+	// dbPortRead := "3306"
+	dbPortReadInt := global.App.Config.Db.DbPortRead
+	// dbPortRead把int转字符串类型
+	dbPortRead := fmt.Sprintf("%d", dbPortReadInt)
+
+	fmt.Println("dbPortRead:", dbPortRead)
+	// dbUser := "xxxxx"
+	dbUser := global.App.Config.Db.UserName
+
+	// dbPassword := "xxxxxxx"
+	dbPassword := global.App.Config.Db.Password
+
+	queryParams := "charset=utf8mb4&parseTime=True&loc=Local"
 
 	// 配置需要连接的数据库,暂时写死，跑通后改为配置文件读取
-	dbNameList := []string{"ppc_library", "growth"}
+	// dbNameList := []string{"ppc_library", "growth"}
+	dbNameList := strings.Split(global.App.Config.Db.DbNameList, ",")
 
 	// 创建一个 map 来保存所有的数据库连接
 	var dbs = make(map[string]*gorm.DB)
