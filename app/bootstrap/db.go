@@ -10,6 +10,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+	"gorm.io/gorm/schema"
 	"gorm.io/plugin/dbresolver"
 )
 
@@ -20,26 +21,26 @@ type DBConfig struct {
 	ReadDSNs []string
 }
 
-func InitializeDB() {
-	fmt.Println(111111)
-	fmt.Println(global.App.Config.Db)
+func InitializeDB() map[string]*gorm.DB {
+
+	// fmt.Println(global.App.Config.Db)
 	// 暂时写死，稍后改为配置文件读取
 	// dbHostWrite := "127.0.0.1"
 	dbHostWrite := global.App.Config.Db.DbHostWrite
-	fmt.Println(dbHostWrite)
+	// fmt.Println(dbHostWrite)
 	// dbHostRead := "127.0.0.1,127.0.0.1"
 	dbHostRead := global.App.Config.Db.DbHostRead
 
 	// dbPortWrite := "3306"
 	dbPortWriteInt := global.App.Config.Db.DbPortWrite
 	dbPortWrite := fmt.Sprintf("%d", dbPortWriteInt)
-	fmt.Println("dbPortWrite:", dbPortWrite)
+	// fmt.Println("dbPortWrite:", dbPortWrite)
 	// dbPortRead := "3306"
 	dbPortReadInt := global.App.Config.Db.DbPortRead
 	// dbPortRead把int转字符串类型
 	dbPortRead := fmt.Sprintf("%d", dbPortReadInt)
 
-	fmt.Println("dbPortRead:", dbPortRead)
+	// fmt.Println("dbPortRead:", dbPortRead)
 	// dbUser := "xxxxx"
 	dbUser := global.App.Config.Db.UserName
 
@@ -62,7 +63,7 @@ func InitializeDB() {
 	var readDSNs []string
 
 	for _, dbName := range dbNameList {
-		fmt.Println("dbName:", dbName)
+		// fmt.Println("dbName:", dbName)
 		writeDSN := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?%s", dbUser, dbPassword, dbHostWrite, dbPortWrite, dbName, queryParams)
 
 		for _, readHost := range dbHostReads {
@@ -80,6 +81,7 @@ func InitializeDB() {
 
 		dbs[DBConfig.Name] = createDBResolver(DBConfig)
 	}
+	return dbs
 }
 
 // 创建数据库连接配置
@@ -102,6 +104,9 @@ func createDBResolver(config DBConfig) *gorm.DB {
 	// 打开数据库连接
 	db, err := gorm.Open(writeConn, &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
+		NamingStrategy: schema.NamingStrategy{
+			SingularTable: true, // 禁用复数表名
+		},
 	})
 	if err != nil {
 		log.Fatalf("failed to connect database %s: %v", config.Name, err)

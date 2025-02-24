@@ -1,7 +1,7 @@
 package router
 
 import (
-	"fmt"
+	userController "ginapi/app/controller/user"
 	initMiddleware "ginapi/app/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -12,27 +12,28 @@ func InitRouter(r *gin.Engine) *gin.Engine {
 	// 注册全局中间件
 	r = initMiddleware.InitGlobleMiddleware(r)
 
-    // {}为了代码规范
-    {
-        r.GET("/ce", func(c *gin.Context) {
-            // 取值
-            req, _ := c.Get("request")
-            fmt.Println("request111:", req)
-            // 页面接收
-            c.JSON(200, gin.H{"request": req})
-        })
+	v1 := r.Group("/v1")
+	// {} 是书写规范
+	{
+		v1.GET("/SayHello", userController.SayHello)
 
-    }
-	
-	// userGroup := r.Group("/user")
-	// userGroup.Any("/current", func(c *gin.Context) {
-	// 	// user, _ := user.Current()
-	// 	// c.String(http.StatusOK, "hello %s", user.Username)
-	// 	user.SayHello(c)
-		
-	// })
+		v1 = v1.Group("/user")
+		{
+			v1.GET("/login", userController.Login)
+		}
+	}
+
+	v2 := r.Group("/v2")
+	// {} 是书写规范
+	{
+		v2.GET("/SayHello", userController.SayHello2)
+
+		v2 = v2.Group("/user")
+		{
+			v2.GET("/login", userController.Login2)
+		}
+	}
 
 	return r
-	
-}
 
+}
