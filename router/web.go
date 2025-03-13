@@ -1,6 +1,7 @@
 package router
 
 import (
+	learnController "ginapi/app/controller/learn"
 	userController "ginapi/app/controller/user"
 	initMiddleware "ginapi/app/middleware"
 
@@ -15,6 +16,11 @@ func InitRouter(r *gin.Engine) *gin.Engine {
 	{
 		user.POST("/register", userController.Register)
 		user.POST("/login", userController.Login)
+	}
+
+	learn := r.Group("/learn")
+	{
+		learn.POST("/learn", learnController.Learn1)
 	}
 
 	return r

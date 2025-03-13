@@ -13,6 +13,7 @@ import (
 )
 
 func Login(c *gin.Context) {
+
 	req := user.LoginReq{}
 	err := c.ShouldBindJSON(&req)
 	if err != nil {
