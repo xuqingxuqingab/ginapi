@@ -55,9 +55,5 @@ func CheckPassword(account string, password string) bool {
 	if testUser.Password == password {
 		return true
 	}
-	// fmt.Println(result)
-	// fmt.Println(testUser)
-	// json, _ := json.Marshal(testUser)
-	// fmt.Println(string(json))
 	return false
 }
