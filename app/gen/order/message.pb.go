@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type UserListRequest struct {
+type OrderListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          int64                  `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
 	PageSize      int64                  `protobuf:"varint,2,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
@@ -29,20 +29,20 @@ type UserListRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UserListRequest) Reset() {
-	*x = UserListRequest{}
+func (x *OrderListRequest) Reset() {
+	*x = OrderListRequest{}
 	mi := &file_app_proto_order_message_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserListRequest) String() string {
+func (x *OrderListRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserListRequest) ProtoMessage() {}
+func (*OrderListRequest) ProtoMessage() {}
 
-func (x *UserListRequest) ProtoReflect() protoreflect.Message {
+func (x *OrderListRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_app_proto_order_message_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,47 +54,47 @@ func (x *UserListRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserListRequest.ProtoReflect.Descriptor instead.
-func (*UserListRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OrderListRequest.ProtoReflect.Descriptor instead.
+func (*OrderListRequest) Descriptor() ([]byte, []int) {
 	return file_app_proto_order_message_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *UserListRequest) GetPage() int64 {
+func (x *OrderListRequest) GetPage() int64 {
 	if x != nil {
 		return x.Page
 	}
 	return 0
 }
 
-func (x *UserListRequest) GetPageSize() int64 {
+func (x *OrderListRequest) GetPageSize() int64 {
 	if x != nil {
 		return x.PageSize
 	}
 	return 0
 }
 
-type UserListResponse struct {
+type OrderListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Total         int64                  `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
-	Users         []*User                `protobuf:"bytes,2,rep,name=users,proto3" json:"users,omitempty"`
+	Orders        []*Order               `protobuf:"bytes,2,rep,name=orders,proto3" json:"orders,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UserListResponse) Reset() {
-	*x = UserListResponse{}
+func (x *OrderListResponse) Reset() {
+	*x = OrderListResponse{}
 	mi := &file_app_proto_order_message_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserListResponse) String() string {
+func (x *OrderListResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserListResponse) ProtoMessage() {}
+func (*OrderListResponse) ProtoMessage() {}
 
-func (x *UserListResponse) ProtoReflect() protoreflect.Message {
+func (x *OrderListResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_app_proto_order_message_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -106,46 +106,46 @@ func (x *UserListResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserListResponse.ProtoReflect.Descriptor instead.
-func (*UserListResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OrderListResponse.ProtoReflect.Descriptor instead.
+func (*OrderListResponse) Descriptor() ([]byte, []int) {
 	return file_app_proto_order_message_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *UserListResponse) GetTotal() int64 {
+func (x *OrderListResponse) GetTotal() int64 {
 	if x != nil {
 		return x.Total
 	}
 	return 0
 }
 
-func (x *UserListResponse) GetUsers() []*User {
+func (x *OrderListResponse) GetOrders() []*Order {
 	if x != nil {
-		return x.Users
+		return x.Orders
 	}
 	return nil
 }
 
-type UserInfoRequest struct {
+type OrderInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UserInfoRequest) Reset() {
-	*x = UserInfoRequest{}
+func (x *OrderInfoRequest) Reset() {
+	*x = OrderInfoRequest{}
 	mi := &file_app_proto_order_message_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserInfoRequest) String() string {
+func (x *OrderInfoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserInfoRequest) ProtoMessage() {}
+func (*OrderInfoRequest) ProtoMessage() {}
 
-func (x *UserInfoRequest) ProtoReflect() protoreflect.Message {
+func (x *OrderInfoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_app_proto_order_message_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -157,40 +157,40 @@ func (x *UserInfoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserInfoRequest.ProtoReflect.Descriptor instead.
-func (*UserInfoRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OrderInfoRequest.ProtoReflect.Descriptor instead.
+func (*OrderInfoRequest) Descriptor() ([]byte, []int) {
 	return file_app_proto_order_message_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *UserInfoRequest) GetId() int64 {
+func (x *OrderInfoRequest) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-type UserInfoResponse struct {
+type OrderInfoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Number        string                 `protobuf:"bytes,2,opt,name=number,proto3" json:"number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UserInfoResponse) Reset() {
-	*x = UserInfoResponse{}
+func (x *OrderInfoResponse) Reset() {
+	*x = OrderInfoResponse{}
 	mi := &file_app_proto_order_message_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserInfoResponse) String() string {
+func (x *OrderInfoResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserInfoResponse) ProtoMessage() {}
+func (*OrderInfoResponse) ProtoMessage() {}
 
-func (x *UserInfoResponse) ProtoReflect() protoreflect.Message {
+func (x *OrderInfoResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_app_proto_order_message_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -202,47 +202,47 @@ func (x *UserInfoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserInfoResponse.ProtoReflect.Descriptor instead.
-func (*UserInfoResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OrderInfoResponse.ProtoReflect.Descriptor instead.
+func (*OrderInfoResponse) Descriptor() ([]byte, []int) {
 	return file_app_proto_order_message_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *UserInfoResponse) GetId() int64 {
+func (x *OrderInfoResponse) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *UserInfoResponse) GetName() string {
+func (x *OrderInfoResponse) GetNumber() string {
 	if x != nil {
-		return x.Name
+		return x.Number
 	}
 	return ""
 }
 
-type User struct {
+type Order struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Number        string                 `protobuf:"bytes,2,opt,name=number,proto3" json:"number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *User) Reset() {
-	*x = User{}
+func (x *Order) Reset() {
+	*x = Order{}
 	mi := &file_app_proto_order_message_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *User) String() string {
+func (x *Order) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*User) ProtoMessage() {}
+func (*Order) ProtoMessage() {}
 
-func (x *User) ProtoReflect() protoreflect.Message {
+func (x *Order) ProtoReflect() protoreflect.Message {
 	mi := &file_app_proto_order_message_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -254,21 +254,21 @@ func (x *User) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use User.ProtoReflect.Descriptor instead.
-func (*User) Descriptor() ([]byte, []int) {
+// Deprecated: Use Order.ProtoReflect.Descriptor instead.
+func (*Order) Descriptor() ([]byte, []int) {
 	return file_app_proto_order_message_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *User) GetId() int64 {
+func (x *Order) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *User) GetName() string {
+func (x *Order) GetNumber() string {
 	if x != nil {
-		return x.Name
+		return x.Number
 	}
 	return ""
 }
@@ -278,24 +278,25 @@ var File_app_proto_order_message_proto protoreflect.FileDescriptor
 var file_app_proto_order_message_proto_rawDesc = string([]byte{
 	0x0a, 0x1d, 0x61, 0x70, 0x70, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x6f, 0x72, 0x64, 0x65,
 	0x72, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
-	0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x42, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69,
-	0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x61, 0x67,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x70, 0x61, 0x67, 0x65, 0x12, 0x1b, 0x0a,
-	0x09, 0x70, 0x61, 0x67, 0x65, 0x5f, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03,
-	0x52, 0x08, 0x70, 0x61, 0x67, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x22, 0x4b, 0x0a, 0x10, 0x55, 0x73,
-	0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14,
-	0x0a, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x74,
-	0x6f, 0x74, 0x61, 0x6c, 0x12, 0x21, 0x0a, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x18, 0x02, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72,
-	0x52, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x22, 0x21, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x49,
-	0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x22, 0x36, 0x0a, 0x10, 0x55, 0x73,
-	0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12,
-	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x22, 0x2a, 0x0a, 0x04, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x42, 0x16,
+	0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x43, 0x0a, 0x10, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4c,
+	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x61,
+	0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x70, 0x61, 0x67, 0x65, 0x12, 0x1b,
+	0x0a, 0x09, 0x70, 0x61, 0x67, 0x65, 0x5f, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x08, 0x70, 0x61, 0x67, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x22, 0x4f, 0x0a, 0x11, 0x4f,
+	0x72, 0x64, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x12, 0x24, 0x0a, 0x06, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x73,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x4f,
+	0x72, 0x64, 0x65, 0x72, 0x52, 0x06, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x22, 0x22, 0x0a, 0x10,
+	0x4f, 0x72, 0x64, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64,
+	0x22, 0x3b, 0x0a, 0x11, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x2f, 0x0a,
+	0x05, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x42, 0x16,
 	0x5a, 0x14, 0x67, 0x69, 0x6e, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x70, 0x70, 0x2f, 0x67, 0x65, 0x6e,
 	0x2f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 })
@@ -314,14 +315,14 @@ func file_app_proto_order_message_proto_rawDescGZIP() []byte {
 
 var file_app_proto_order_message_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_app_proto_order_message_proto_goTypes = []any{
-	(*UserListRequest)(nil),  // 0: order.UserListRequest
-	(*UserListResponse)(nil), // 1: order.UserListResponse
-	(*UserInfoRequest)(nil),  // 2: order.UserInfoRequest
-	(*UserInfoResponse)(nil), // 3: order.UserInfoResponse
-	(*User)(nil),             // 4: order.User
+	(*OrderListRequest)(nil),  // 0: order.OrderListRequest
+	(*OrderListResponse)(nil), // 1: order.OrderListResponse
+	(*OrderInfoRequest)(nil),  // 2: order.OrderInfoRequest
+	(*OrderInfoResponse)(nil), // 3: order.OrderInfoResponse
+	(*Order)(nil),             // 4: order.Order
 }
 var file_app_proto_order_message_proto_depIdxs = []int32{
-	4, // 0: order.UserListResponse.users:type_name -> order.User
+	4, // 0: order.OrderListResponse.orders:type_name -> order.Order
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

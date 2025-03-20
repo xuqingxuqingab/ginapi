@@ -34,7 +34,7 @@ type userServer struct {
 }
 
 type orderServer struct {
-	order.UnimplementedUserServiceServer
+	order.UnimplementedOrderServiceServer
 }
 
 func InitializeMicroServices() {
@@ -68,7 +68,7 @@ func InitializeGrpcServer(config MicroServicesConfig) error {
 	case "user":
 		user.RegisterUserServiceServer(server, &userServer{})
 	case "order":
-		order.RegisterUserServiceServer(server, &orderServer{})
+		order.RegisterOrderServiceServer(server, &orderServer{})
 	default:
 		return fmt.Errorf("未知服务类型: %s", config.Name)
 	}
