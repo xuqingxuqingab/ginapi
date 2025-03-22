@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"ginapi/app/bootstrap"
 	"ginapi/app/global"
+	"ginapi/app/microClient"
 	microServices "ginapi/app/microServices"
 	"ginapi/router"
 	"os"
@@ -24,6 +25,7 @@ func main() {
 
 	fmt.Println(projectType)
 	if len(projectType) == 0 { // 认为是客户端启动
+		// 修正：使用fmt.Println代替未定义的Println
 		fmt.Println("启动客户端")
 
 		// 创建路由
@@ -31,6 +33,8 @@ func main() {
 		// 绑定路由规则，执行的函数
 		// gin.Context，封装了request和response
 		router.InitRouter(r)
+
+		microClient.NewClientPool()
 
 		// 3.监听端口，默认在8080
 		// Run("里面不指定端口号默认为8080")
